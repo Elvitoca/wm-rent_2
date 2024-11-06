@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Rent a Car WM | Pedido</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Alquiler y renta de vehículos en Paraguay. Encuentra autos económicos y de lujo para alquilar en Rent a Car WM. ¡Renta un auto con facilidad y seguridad!">
+    <meta name="keywords" content="alquiler de vehículos, renta de autos, alquiler de autos, renta de vehículos, autos en Paraguay, Rent a Car WM, alquiler de autos en Paraguay">
+    <meta name="author" content="Rent a Car WM">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Favicon -->
+    <link rel="icon" href="https://www.rentacarwm.com.py/favicon.ico" type="image/x-icon">
+
+
+
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    <!--Main -->
+    <link href="assets/css/style.css" rel="stylesheet">
+    <!--<link href="assets/css/styles_coti.css" rel="stylesheet">-->
+    <link href="assets/css/styles.css" rel="stylesheet">
+
+    <link href="assets/css/styles.css" rel="stylesheet">
+    <!--<link href="assets/css/styles_coti.css" rel="stylesheet">-->
+    
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Contenedor principal */
+        .pedido-container {
+            display: flex;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 20px auto;
+            gap: 20px;
+            padding: 20px;
+            background: #f7f9fc;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Formulario */
+        .form-container {
+            flex: 1 1 60%;
+            padding: 20px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-container h2 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .form-container label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+            font-weight: bold;
+        }
+
+        .form-container input,
+        .form-container select,
+        .form-container button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .form-container button {
+            background: orange;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            border: none;
+            transition: background 0.3s ease;
+        }
+
+        .form-container button:hover {
+            background: red;
+        }
+
+        /* Detalles del auto */
+        .car-details-container {
+            flex: 1 1 35%;
+            padding: 20px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .car-details-container h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #333;
+            text-align: center;
+        }
+
+        .car-details-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .car-details {
+            list-style: none;
+            color: #555;
+            font-size: 14px;
+        }
+
+        .car-details li {
+            margin-bottom: 8px;
+        }
+
+        .car-details li strong {
+            color: #333;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .pedido-container {
+                flex-direction: column;
+            }
+
+            .form-container, .car-details-container {
+                flex: 1 1 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+<section id="cta" class="cta">
+            <div class="container">
+
+                <div class="row" data-aos="zoom-in">
+                    <div style=" text-align: center;">
+                        <h3>Formulario de reserva WM</h3>
+                        
+                    </div>
+                    
+                </div>
+
+            </div>
+        </section><!-- End Cta Section -->
+
+<div class="pedido-container">
+    <!-- Formulario de reserva -->
+    <div class="form-container">
+        <h2>Formulario de Reserva</h2>
+        <p>Llene los campos requeridos</p>
+        <form onsubmit="event.preventDefault(); submitReservation();">
+    <label for="name">Nombre y Apellido:</label>
+    <input type="text" id="name" name="name" required placeholder="Ingrese su Nombre y Apellido">
+
+    <!-- Nuevo campo para Celular -->
+     
+    <label for="phone">Celular: 
+        <div style="font-size: 10px; font-style: italic;">(Sin espacios, guiones ni puntos)</div>
+    </label>
+    <input type="tel" id="phone" name="phone" required placeholder="Ingrese su número de celular" pattern="[0-9]+" title="Por favor, ingrese solo números.">
+    
+
+    <label for="payment">Forma de Pago: <div style="font-size: 10px; font-style: italic;">(Pagos Online con Bancard Web)</div></label>
+    <select id="payment" name="payment" required>
+        <option value="Tarjeta de Crédito">Tarjeta de Crédito</option>
+        <option value="Dinero en Efectivo">Dinero en Efectivo</option>
+    </select>
+
+    <button type="submit">Enviar Reserva</button>
+</form>
+
+
+    </div>
+
+    
+
+   <!-- Detalles del auto -->
+<div class="car-details-container">
+    <h3 style="color: red;">Vehículo Elegido:</h3>
+    <img id="carImage" alt="Imagen del vehículo" />
+    <ul class="car-details">
+        <li><h4><span id="carName"></span></h4></li>
+        <li><strong>Pasajeros:</strong> <span id="passengers"></span></li>
+        <li><strong>Colores:</strong> <span id="colors"></span></li>
+        <li><strong>Transmisión:</strong> <span id="transmission"></span></li>
+        <li><strong>Motor:</strong> <span id="motor"></span></li>
+        <li><strong>Combustible:</strong> <span id="fuel"></span></li>
+        <li><strong>Aire Acondicionado:</strong> <span id="ac"></span></li>
+        <li><strong>Radio Bluetooth:</strong> <span id="radio"></span></li>
+        <li><strong>Garantía:</strong> <span id="warranty"></span></li>
+        <li><strong>Precio por Día:</strong> <span id="pricePerDay"></span></li>
+        <li><strong>Días Alquilados:</strong> <span id="rentalDays"></span></li>
+        <li><strong>Fecha de Recogida:</strong> <span id="pickupDate"></span></li>
+        <li><strong>Fecha de Entrega:</strong> <span id="returnDate"></span></li>
+        <li><h5 style="color: red;"><strong>Total:</strong> <span id="totalPrice"></span></h5></li>
+    </ul>
+</div>
+
+
+  <section id="contact" class="contact">
+                <div class="container" data-aos="fade-up">
+
+                    <div class="section-title">
+                        <h2>Contacto</h2>
+                    </div>
+
+                    <div class="row mt-1 d-flex justify-content-end" data-aos="fade-right" data-aos-delay="100">
+
+                        <div class="col-lg-5">
+                            <div class="info">
+                                <div class="address">
+                                    <i class="bi bi-geo-alt"></i>
+                                    <h4>Dirección:</h4>
+                                    <p>San Miguel Esq. Feliciando Duarte - San Lorenzo</p>
+                                </div>
+
+                                <div class="email">
+                                    <i class="bi bi-envelope"></i>
+                                    <h4>Correo:</h4>
+                                    <p>wmgrouprentacar@gmail.com</p>
+                                </div>
+
+                                <div class="phone">
+                                    <i class="bi bi-phone"></i>
+                                    <h4>Celular:</h4>
+                                    <p>0983 496 378</p>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-lg-6 mt-5 mt-lg-0" data-aos="fade-left" data-aos-delay="100">
+
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3780.850465541043!2d-57.53274322461477!3d-25.301776677643765!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjXCsDE4JzA2LjQiUyA1N8KwMzEnNDguNiJX!5e1!3m2!1sen!2spy!4v1728036010897!5m2!1sen!2spy" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </section><!-- End Contact Section -->
+
+<footer id="footer">
+
+
+
+        <div class="container">
+            <div class="copyright">
+                &copy; Copyright 2024 <strong><span>Rent a Car - WM </span></strong> Derechos Reservados.
+            </div>
+            <div class="credits">
+                
+                Designed by <a href="https://">VC Web Designer 2024</a>
+            </div>
+        </div>
+    
+
+    <div id="preloader"></div>
+    <script>
+        // Obtener los datos de la URL y mostrar en la página
+        function displayCarData() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const carData = {
+                carName: urlParams.get('carName'),
+                passengers: urlParams.get('passengers'),
+                colors: urlParams.get('colors'),
+                transmission: urlParams.get('transmission'),
+                motor: urlParams.get('motor'),
+                fuel: urlParams.get('fuel'),
+                ac: urlParams.get('ac'),
+                radio: urlParams.get('radio'),
+                warranty: urlParams.get('warranty'),
+                pricePerDay: urlParams.get('pricePerDay'),
+                totalPrice: urlParams.get('totalPrice'),
+                image: urlParams.get('image'),
+                pickupDate: urlParams.get('pickupDate') || "No disponible",
+                returnDate: urlParams.get('returnDate') || "No disponible"
+            };
+            
+            console.log("Car data from URL:", carData);
+    
+            // Mostrar los datos en la página
+            try {
+                document.getElementById("carName").textContent = carData.carName || "No disponible";
+                document.getElementById("passengers").textContent = carData.passengers || "No disponible";
+                document.getElementById("colors").textContent = carData.colors || "No disponible";
+                document.getElementById("transmission").textContent = carData.transmission || "No disponible";
+                document.getElementById("motor").textContent = carData.motor || "No disponible";
+                document.getElementById("fuel").textContent = carData.fuel || "No disponible";
+                document.getElementById("ac").textContent = carData.ac || "No disponible";
+                document.getElementById("radio").textContent = carData.radio || "No disponible";
+                document.getElementById("warranty").textContent = carData.warranty || "No disponible";
+                document.getElementById("pricePerDay").textContent = carData.pricePerDay || "No disponible";
+                document.getElementById("totalPrice").textContent = carData.totalPrice || "No disponible";
+                document.getElementById("pickupDate").textContent = carData.pickupDate;
+                document.getElementById("returnDate").textContent = carData.returnDate;
+            
+                const carImage = document.getElementById("carImage");
+                if (carData.image) {
+                    carImage.src = carData.image;
+                    carImage.alt = `Imagen del vehículo ${carData.carName}`;
+                    console.log("Car image set with URL:", carData.image);
+                } else {
+                    carImage.alt = "Imagen no disponible";
+                    console.warn("No image URL found for car.");
+                }
+    
+                console.log("Datos mostrados correctamente en la página.");
+            } catch (error) {
+                console.error("Error al mostrar los datos en la página:", error);
+            }
+        }
+    
+        // Recuperar datos de localStorage y mostrarlos en la página
+        function loadCarDataFromLocalStorage() {
+            const carData = JSON.parse(localStorage.getItem("carData"));
+            console.log("Car data from localStorage:", carData);
+    
+            if (carData) {
+                document.getElementById("carName").textContent = carData.name || "No disponible";
+                document.getElementById("passengers").textContent = carData.passengers || "No disponible";
+                document.getElementById("colors").textContent = carData.colors ? carData.colors.join(", ") : "No disponible";
+                document.getElementById("transmission").textContent = carData.transmission || "No disponible";
+                document.getElementById("motor").textContent = carData.motor || "No disponible";
+                document.getElementById("fuel").textContent = carData.fuel || "No disponible";
+                document.getElementById("ac").textContent = carData.ac || "No disponible";
+                document.getElementById("radio").textContent = carData.radio || "No disponible";
+                document.getElementById("warranty").textContent = carData.warranty ? carData.warranty.toLocaleString("en-US") + " gs" : "No disponible";
+                document.getElementById("pricePerDay").textContent = carData.price ? carData.price.toLocaleString("en-US") + " gs" : "No disponible";
+                document.getElementById("totalPrice").textContent = carData.totalPrice ? carData.totalPrice.toLocaleString("en-US") + " gs" : "No disponible";
+                document.getElementById("rentalDays").textContent = carData.rentalDays || "No disponible";
+                document.getElementById("pickupDate").textContent = carData.pickupDate || "No disponible";
+                document.getElementById("returnDate").textContent = carData.returnDate || "No disponible";
+                document.getElementById("carImage").src = carData.image || "default-image.jpg";  // Usa una imagen predeterminada si no hay imagen
+            } else {
+                console.error("No car data found in localStorage.");
+            }
+        }
+    
+        // Guardar Datos del Formulario en Local Storage
+        function submitReservation() {
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const payment = document.getElementById('payment').value;
+    
+            const carName = document.getElementById('carName').innerText;
+            const passengers = document.getElementById('passengers').innerText;
+            const colors = document.getElementById('colors').innerText.split(', ');
+            const transmission = document.getElementById('transmission').innerText;
+            const motor = document.getElementById('motor').innerText;
+            const fuel = document.getElementById('fuel').innerText;
+            const ac = document.getElementById('ac').innerText;
+            const radio = document.getElementById('radio').innerText;
+            const warranty = document.getElementById('warranty').innerText;
+            const pricePerDay = document.getElementById('pricePerDay').innerText;
+            const totalPrice = document.getElementById('totalPrice').innerText;
+            const rentalDays = document.getElementById('rentalDays').innerText;
+            const pickupDate = document.getElementById('pickupDate').innerText;
+            const returnDate = document.getElementById('returnDate').innerText;
+    
+            const reservationData = {
+                name,
+                phone,
+                payment,
+                carName,
+                passengers,
+                colors,
+                transmission,
+                motor,
+                fuel,
+                ac,
+                radio,
+                warranty,
+                pricePerDay,
+                totalPrice,
+                rentalDays,
+                pickupDate,
+                returnDate,
+                image: document.getElementById('carImage').src
+            };
+    
+            console.log("Reservation data to save:", reservationData);
+    
+            localStorage.setItem('reservationData', JSON.stringify(reservationData));
+            window.location.href = 'reserva_confirm.html';
+        }
+    
+        // Inicializar la página
+        document.addEventListener("DOMContentLoaded", function() {
+            displayCarData(); 
+            loadCarDataFromLocalStorage(); 
+        });
+    </script>
+    
+
+
+ <!-- Vendor JS Files -->
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/vendor/php-email-form/validate.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="assets/js/main.js"></script>
+    
+    
+</body>
+</html>
