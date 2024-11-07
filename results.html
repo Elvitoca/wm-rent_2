@@ -304,7 +304,7 @@
                                                 ac: "Sí",
                                                 radio: "Sí",
                                                 warranty: 1000000,
-                                                limited: [400000, 380000, 350000, 310000, 28000],
+                                                limited: [400000, 380000, 350000, 310000, 280000],
                                                 unlimited: [490000, 450000, 380000, 365000, 310000]
                                             },
                                             {
@@ -400,72 +400,77 @@
                         priceRangeIndex = 4;
                     }
             
-                    // Formatear las fechas
+                    // Formatear las fechas y el tipo de precio
                     const formattedPickupDate = pickupDate.toLocaleDateString("es-ES");
                     const formattedReturnDate = returnDate.toLocaleDateString("es-ES");
+                    const formattedPricingType = pricingType === "limited" ? "Precio limitado" : "Precio ilimitado";
             
                     // Generar los resultados
-                    let resultsHtml = "";
+let resultsHtml = "";
+
+cars.forEach(car => {
+    const price = pricingType === "limited" ? car.limited[priceRangeIndex] : car.unlimited[priceRangeIndex];
+    const totalPrice = Math.round((price * rentalDays) + car.warranty);
+
+    // Crear mensaje para WhatsApp con los detalles del auto
+    const message = `¡Hola Rent a Car WM! Me gustaría alquilar el vehículo ${car.name}.
+    \nPasajeros: ${car.passengers}
+    \nColores disponibles: ${car.colors.join(", ")}
+    \nTransmisión: ${car.transmission}
+    \nMotor: ${car.motor}
+    \nTipo de combustible: ${car.fuel}
+    \nAire acondicionado: ${car.ac}
+    \nRadio Bluetooth: ${car.radio}
+    \nGarantía: ${car.warranty.toLocaleString()} gs.
+    \nPrecio por día: ${price.toLocaleString()} gs.
+    \nTotal por ${rentalDays} día(s): ${totalPrice.toLocaleString()} gs. con garantía.
+    \nFecha de recogida: ${formattedPickupDate}
+    \nFecha de entrega: ${formattedReturnDate}
+    \nTipo de precio: ${formattedPricingType}`;
+    const whatsappLink = `https://api.whatsapp.com/send?text=${encodeURIComponent(message)}`;
+
+    // Agregar el auto a los resultados HTML
+    resultsHtml += `
+        <div class="car-card">
+            <h3>${car.name}</h3>
+            <img src="${car.image}" alt="${car.name}" class="car-image">
+            <ul class="car-details">
+                
+                <li><strong>Pasajeros:</strong> ${car.passengers}</li>
+                <li><strong>Colores disponibles:</strong> ${car.colors.join(", ")}</li>
+                <li><strong>Transmisión:</strong> ${car.transmission}</li>
+                <li><strong>Motor:</strong> ${car.motor}</li>
+                <li><strong>Tipo de combustible:</strong> ${car.fuel}</li>
+                <li><strong>Aire acondicionado:</strong> ${car.ac}</li>
+                <li><strong>Radio Bluetooth:</strong> ${car.radio}</li>
+                <li><strong>Garantía:</strong> ${car.warranty.toLocaleString("en-US")} gs.</li>
+                <li><strong>Precio por día:</strong> ${price.toLocaleString("en-US")} gs.</li>
+            </ul>
             
-                    cars.forEach(car => {
-                        const price = pricingType === "limited" ? car.limited[priceRangeIndex] : car.unlimited[priceRangeIndex];
-                        const totalPrice = Math.round((price * rentalDays) + car.warranty);
-            
-                        // Crear mensaje para WhatsApp con los detalles del auto
-                        const message = `¡Hola Rent a Car WM! Me gustaría alquilar el vehículo ${car.name}.
-            \nPasajeros: ${car.passengers}
-            \nColores disponibles: ${car.colors.join(", ")}
-            \nTransmisión: ${car.transmission}
-            \nMotor: ${car.motor}
-            \nTipo de combustible: ${car.fuel}
-            \nAire acondicionado: ${car.ac}
-            \nRadio Bluetooth: ${car.radio}
-            \nGarantía: ${car.warranty.toLocaleString()} gs.
-            \nPrecio por día: ${price.toLocaleString()} gs.
-            \nTotal por ${rentalDays} día(s): ${totalPrice.toLocaleString()} gs. con garantía.
-            \nFecha de recogida: ${formattedPickupDate}
-            \nFecha de entrega: ${formattedReturnDate}`;
-                        const whatsappLink = `https://api.whatsapp.com/send?text=${encodeURIComponent(message)}`;
-            
-                        // Agregar el auto a los resultados HTML
-                        resultsHtml += `
-                            <div class="car-card">
-                                <h3>${car.name}</h3>
-                                <img src="${car.image}" alt="${car.name}" class="car-image">
-                                <ul class="car-details">
-                                    <li><strong>Descripción:</strong> ${car.description}</li>
-                                    <li><strong>Pasajeros:</strong> ${car.passengers}</li>
-                                    <li><strong>Colores disponibles:</strong> ${car.colors.join(", ")}</li>
-                                    <li><strong>Transmisión:</strong> ${car.transmission}</li>
-                                    <li><strong>Motor:</strong> ${car.motor}</li>
-                                    <li><strong>Tipo de combustible:</strong> ${car.fuel}</li>
-                                    <li><strong>Aire acondicionado:</strong> ${car.ac}</li>
-                                    <li><strong>Radio Bluetooth:</strong> ${car.radio}</li>
-                                    <li><strong>Garantía:</strong> ${car.warranty.toLocaleString("en-US")} gs.</li>
-                                    <li><strong>Precio por día:</strong> ${price.toLocaleString("en-US")} gs.</li>
-                                </ul>
-                                <div class="results-title">
-                                    <p><strong>Fecha de Retiro:</strong> ${formattedPickupDate}</p>
-                                    <p><strong>Fecha de Entrega:</strong> ${formattedReturnDate}</p>
-                                </div>
-                                <div style="background-color: #f2f2f2; padding: 10px; border-radius: 5px; margin-bottom: 10px; border: 1px solid #ddd;">
-                                    <div class="price-info">
-                                        <strong>Total:</strong> 
-                                        <div class="total-price">${totalPrice.toLocaleString("en-US")} gs.</div>
-                                        <p>por ${rentalDays} día(s) con garantía</p>
-                                    </div>
-                                </div>
-                                <button type="button" onclick="saveCarDataAndRedirect('${car.name}', ${car.passengers}, '${car.colors.join(", ")}', '${car.transmission}', '${car.motor}', '${car.fuel}', '${car.ac}', '${car.radio}', ${car.warranty}, ${price}, ${rentalDays}, ${totalPrice}, '${car.image}')">Alquilar</button>
-                                <div style="display: grid; place-items: center;">
-                                    <div style="color: #f8f8f8; border: 1px solid #ddd; border-radius: 0.5em; width: 7em; padding: 0.2em;">
-                                        <a href="${whatsappLink}" target="_blank" class="whatsapp-link">WhatsApp</a>
-                                    </div>
-                                </div>
-                            </div>
-                        `;
-                    });
-            
-                    document.getElementById('results').innerHTML = resultsHtml;
+            <div style="background-color: #f2f2f2; padding: 10px; border-radius: 5px; margin-bottom: 10px; border: 1px solid #ddd;">
+                <div class="price-info">
+                    <strong>Total:</strong> 
+                    <div class="total-price">${totalPrice.toLocaleString("en-US")} gs.</div>
+                    <p>por ${rentalDays} día(s) con garantía</p>
+                    <div class="results-title">
+                <p><strong>Tarifa:</strong> ${formattedPricingType}</p>
+                <p><strong>Retiro:</strong> ${formattedPickupDate}</p>
+                <p><strong>Entrega:</strong> ${formattedReturnDate}</p>
+                
+            </div>
+                </div>
+            </div>
+            <button type="button" onclick="saveCarDataAndRedirect('${car.name}', ${car.passengers}, '${car.colors.join(", ")}', '${car.transmission}', '${car.motor}', '${car.fuel}', '${car.ac}', '${car.radio}', ${car.warranty}, ${price}, ${rentalDays}, ${totalPrice}, '${car.image}')">Alquilar</button>
+            <div style="display: grid; place-items: center;">
+                <div style="color: #f8f8f8; border: 1px solid #ddd; border-radius: 0.5em; width: 7em; padding: 0.2em;">
+                    <a href="${whatsappLink}" target="_blank" class="whatsapp-link">WhatsApp</a>
+                </div>
+            </div>
+        </div>
+    `;
+});
+
+document.getElementById('results').innerHTML = resultsHtml;
                 });
             
                 // Función para guardar datos en localStorage y redirigir
@@ -493,7 +498,7 @@
             
                         
             
-           <button style=" color: #f8f8f8;"></button>
+          
            <script>
             function redirectToPedidoPage(name, passengers, colors, transmission, motor, fuel, ac, radio, warranty, pricePerDay, days, totalPrice, image, pickupDate, returnDate) {
                 // Información del vehículo y la cotización
